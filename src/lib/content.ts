@@ -46,8 +46,8 @@ const products: Product[] = [
     badge: "Da casa",
     featured: true,
   }),
-  p("salgadinho-queijo-cebolinha", "Salgadinho de Queijo (Cebolinha)", "salgados", "🧀", "Salgadinho de queijo sequinho e saboroso com um toque de cebolinha. Vendido na bandeja.", {
-    image: IMG + "salgadinho-queijo-cebolinha.jpg",
+  p("salgadinho-queijo-cebolinha", "Salgadinho de Queijo (Cebolinha)", "salgados", "🧀", "Salgadinho de queijo sequinho e crocante, com um toque de cebolinha. Ótimo para beliscar.", {
+    image: IMG + "salgadinho-queijo-cebolinha.webp",
     tags: ["Queijo", "Cebolinha"],
     featured: true,
   }),
@@ -64,9 +64,9 @@ const products: Product[] = [
     badge: "Queridinho",
     featured: true,
   }),
-  p("rosca-doce", "Rosca Doce", "doces", "🍪", "Rosquinhas amanteigadas que derretem na boca. Ótimas com um cafezinho.", {
-    image: IMG + "rosca-doce.webp",
-    tags: ["Amanteigada"],
+  p("rosca-doce", "Rosca Doce", "doces", "🍩", "Rosca fofinha e dourada, passada no açúcar. Ótima com um cafezinho.", {
+    image: IMG + "rosca-doce.jpg",
+    tags: ["Açúcar"],
   }),
   p("pudim", "Pudim", "doces", "🍮", "Lisinho, sem furinhos, com calda de caramelo dourada. Receita de família.", {
     image: IMG + "pudim.jpg",
@@ -79,13 +79,19 @@ const products: Product[] = [
   p("bolo-milho", "Bolo de Milho", "bolos", "🌽", "Bolo de milho cremoso e cheiroso, do jeitinho de vó.", { image: IMG + "bolo-milho.jpg" }),
   p("bolo-frutas-cristalizadas", "Bolo de Frutas Cristalizadas", "bolos", "🍰", "Bolo fofinho recheado de frutas cristalizadas.", { image: IMG + "bolo-frutas-cristalizadas.jpg" }),
   p("bolo-formigueiro", "Bolo Formigueiro", "bolos", "🍫", "Bolo fofinho salpicado de chocolate granulado.", { image: IMG + "bolo-formigueiro.jpg" }),
-  p("mini-bolo-pernambuco", "Mini Bolo Pernambuco", "bolos", "🧁", "Mini bolo tradicional pernambucano, na medida para uma pessoa.", { image: IMG + "mini-bolo-pernambuco.jpg" }),
+  p("mini-bolo-pernambuco", "Mini Bolo Pernambuco", "bolos", "🧁", "Mini bolo pernambucano com cobertura decorada, na medida para uma pessoa. Ótimo para presentear.", { image: IMG + "mini-bolo-pernambuco.jpg" }),
 
   // Especiais
   p("panetone", "Panetone", "especiais", "🎄", "Panetone fofinho e perfumado, recheado com frutas cristalizadas e uvas-passas.", {
     image: IMG + "panetone.webp",
     tags: ["Frutas cristalizadas", "Uva-passa"],
     badge: "Natal",
+    featured: true,
+  }),
+  p("panetone-trufado", "Panetone Trufado", "especiais", "🍫", "Panetone fofinho recheado com trufa cremosa e cobertura de chocolate escorrendo, com crocante por cima. Perfeito para presentear.", {
+    image: IMG + "panetone-trufado.webp",
+    tags: ["Trufado", "Chocolate", "Cobertura"],
+    badge: "Novo",
     featured: true,
   }),
 ];

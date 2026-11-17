@@ -11,6 +11,5 @@ export const PHOTO_CREDITS: { image: string; title: string; author: string; lice
   { image: "/images/cardapio/bolo-queijo.jpg", title: "Bolo caseiro", author: "Túllio F", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Bolo_de_Fub%C3%A1_(milho)_01.jpg" },
   { image: "/images/cardapio/bolo-frutas-cristalizadas.jpg", title: "Traditional fruitcake", author: "GeeJo", license: "CC BY-SA 2.0", source: "https://commons.wikimedia.org/wiki/File:Traditional_fruitcake.jpg" },
   { image: "/images/cardapio/bolo-formigueiro.jpg", title: "Slice of cake", author: "Willis Lam", license: "CC BY-SA 2.0", source: "https://commons.wikimedia.org/wiki/File:Slice_of_Schubert%27s_Bakery_Fruitcake_(31772532692).jpg" },
-  { image: "/images/cardapio/mini-bolo-pernambuco.jpg", title: "Bolo caseiro na forma", author: "Mtvdanilo", license: "CC BY 4.0", source: "https://commons.wikimedia.org/wiki/File:Bolo_de_fub%C3%A1.2.jpg" },
   { image: "/images/cardapio/pudim.jpg", title: "Pudim de leite", author: "Marcelo Träsel", license: "CC BY-SA 2.0", source: "https://commons.wikimedia.org/wiki/File:Pudim_de_leite_(3544225805).jpg" },
 ];
