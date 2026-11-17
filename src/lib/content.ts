@@ -30,7 +30,7 @@ function p(
 const products: Product[] = [
   // Pães
   p("pao-frances-queijo", "Pão Francês com Queijo Ralado", "paes", "🥖", "Pãozinho dourado e macio, coberto com queijo ralado gratinado. Sai quentinho do forno.", {
-    image: IMG + "pao-frances-queijo.webp",
+    image: IMG + "pao-frances-queijo.jpg",
     tags: ["Queijo ralado"],
     badge: "Fresquinho",
     featured: true,
@@ -51,9 +51,9 @@ const products: Product[] = [
     tags: ["Queijo", "Cebolinha"],
     featured: true,
   }),
-  p("mini-pizza", "Mini Pizza", "salgados", "🍕", "Mini pizza caseira de massa fofinha, molho de tomate, queijo derretido e recheio caprichado.", {
+  p("mini-pizza", "Mini Pizza", "salgados", "🍕", "Mini pizza caseira de massa fofinha, molho de tomate, presunto em cubinhos e queijo derretido.", {
     image: IMG + "mini-pizza.jpg",
-    tags: ["Queijo", "Molho de tomate"],
+    tags: ["Presunto", "Queijo", "Molho de tomate"],
     badge: "Novo",
   }),
   p("cachorro-quente", "Cachorro-quente", "salgados", "🌭", "Pão macio, salsicha, molho caseiro, queijo ralado e muita batata palha.", {
