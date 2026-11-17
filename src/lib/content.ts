@@ -51,6 +51,11 @@ const products: Product[] = [
     tags: ["Queijo", "Cebolinha"],
     featured: true,
   }),
+  p("mini-pizza", "Mini Pizza", "salgados", "🍕", "Mini pizza caseira de massa fofinha, molho de tomate, queijo derretido e recheio caprichado.", {
+    image: IMG + "mini-pizza.jpg",
+    tags: ["Queijo", "Molho de tomate"],
+    badge: "Novo",
+  }),
   p("cachorro-quente", "Cachorro-quente", "salgados", "🌭", "Pão macio, salsicha, molho caseiro, queijo ralado e muita batata palha.", {
     image: IMG + "cachorro-quente.jpg",
     tags: ["Salsicha", "Batata palha"],
@@ -112,7 +117,7 @@ export const content: DB = {
     aboutText:
       "Tudo começou na cozinha de casa, com receitas de família e muita vontade de fazer gente feliz. Hoje, cada pedido que sai daqui leva o mesmo cuidado: ingredientes fresquinhos, massa feita na hora e aquele sabor que lembra a comida de vó.\n\nDo pãozinho com queijo ralado ao sonho recheado, do bolo de milho ao pudim lisinho — é tudo preparado com amor.",
     aboutImage: "/images/barbara.webp",
-    heroImage: "/images/pudim-destaque.png",
+    heroImage: "/images/barbara.webp",
     whatsapp: "5583988201418",
     whatsappDisplay: "(83) 98820-1418",
     instagram: "barbara.delivery83",
