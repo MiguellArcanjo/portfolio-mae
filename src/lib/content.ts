@@ -74,7 +74,7 @@ const products: Product[] = [
     tags: ["Açúcar"],
   }),
   p("pudim", "Pudim", "doces", "🍮", "Lisinho, sem furinhos, com calda de caramelo dourada. Receita de família.", {
-    image: IMG + "pudim.jpg",
+    image: IMG + "pudim.webp",
     tags: ["Leite condensado", "Caramelo"],
     featured: true,
   }),
@@ -82,7 +82,7 @@ const products: Product[] = [
   // Bolos
   p("bolo-queijo", "Bolo de Queijo", "bolos", "🧀", "Bolo caseiro de queijo, macio e com aquele sabor nordestino.", { image: IMG + "bolo-queijo.jpg" }),
   p("bolo-milho", "Bolo de Milho", "bolos", "🌽", "Bolo de milho cremoso e cheiroso, do jeitinho de vó.", { image: IMG + "bolo-milho.jpg" }),
-  p("bolo-frutas-cristalizadas", "Bolo de Frutas Cristalizadas", "bolos", "🍰", "Bolo fofinho recheado de frutas cristalizadas.", { image: IMG + "bolo-frutas-cristalizadas.jpg" }),
+  p("bolo-frutas-cristalizadas", "Bolo de Frutas Cristalizadas", "bolos", "🍰", "Bolo fofinho recheado de frutas cristalizadas.", { image: IMG + "bolo-frutas-cristalizadas.webp" }),
   p("bolo-formigueiro", "Bolo Formigueiro", "bolos", "🍫", "Bolo fofinho salpicado de chocolate granulado.", { image: IMG + "bolo-formigueiro.jpg" }),
   p("mini-bolo-pernambuco", "Mini Bolo Pernambuco", "bolos", "🧁", "Mini bolo pernambucano com cobertura decorada, na medida para uma pessoa. Ótimo para presentear.", { image: IMG + "mini-bolo-pernambuco.jpg" }),
 
