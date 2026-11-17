@@ -3,12 +3,11 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Product } from "@/lib/types";
 
-export type CartItem = { id: string; name: string; price: number; emoji: string; image: string; qty: number };
+export type CartItem = { id: string; name: string; emoji: string; image: string; qty: number };
 
 type CartCtx = {
   items: CartItem[];
   count: number;
-  total: number;
   open: boolean;
   setOpen: (v: boolean) => void;
   add: (p: Product, from?: HTMLElement | null) => void;
@@ -19,7 +18,7 @@ type CartCtx = {
 };
 
 const Ctx = createContext<CartCtx | null>(null);
-const KEY = "bd-cart-v2";
+const KEY = "bd-cart-v3";
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -85,7 +84,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       setItems((prev) => {
         const found = prev.find((i) => i.id === p.id);
         if (found) return prev.map((i) => (i.id === p.id ? { ...i, qty: i.qty + 1 } : i));
-        return [...prev, { id: p.id, name: p.name, price: p.price, emoji: p.emoji, image: p.image, qty: 1 }];
+        return [...prev, { id: p.id, name: p.name, emoji: p.emoji, image: p.image, qty: 1 }];
       });
       if (from) flyToCart(from, p.emoji);
       else setBump((n) => n + 1);
@@ -101,7 +100,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     () => ({
       items,
       count: items.reduce((s, i) => s + i.qty, 0),
-      total: items.reduce((s, i) => s + i.qty * i.price, 0),
       open,
       setOpen,
       add,

@@ -3,13 +3,13 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowUp, MessageCircle } from "lucide-react";
 import { useState } from "react";
-import { brl, waLink } from "@/lib/utils";
+import { waLink } from "@/lib/utils";
 import { useCart } from "./cart";
 
 export function FloatingButtons({ whatsapp }: { whatsapp: string }) {
   const { scrollY } = useScroll();
   const [show, setShow] = useState(false);
-  const { count, total, setOpen } = useCart();
+  const { count, setOpen } = useCart();
   useMotionValueEvent(scrollY, "change", (y) => setShow(y > 600));
 
   return (
@@ -41,7 +41,6 @@ export function FloatingButtons({ whatsapp }: { whatsapp: string }) {
             Ver sacola
             <span className="rounded-full bg-cocoa-700 px-3 py-1 text-sm text-cream">
               {count} {count === 1 ? "item" : "itens"}
-              {total > 0 && ` · ${brl(total)}`}
             </span>
           </motion.button>
         )}

@@ -4,13 +4,12 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Minus, Plus, Send, ShoppingBag, Trash2, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { brl, waLink } from "@/lib/utils";
+import { waLink } from "@/lib/utils";
 import { useCart } from "./cart";
 
-export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliveryNote: string }) {
-  const { items, open, setOpen, setQty, total, count, clear } = useCart();
+export function CartDrawer({ whatsapp }: { whatsapp: string }) {
+  const { items, open, setOpen, setQty, count, clear } = useCart();
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
   const [payment, setPayment] = useState("Pix");
   const [notes, setNotes] = useState("");
 
@@ -25,18 +24,12 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
     };
   }, [open, setOpen]);
 
-  const hasUnpriced = items.some((i) => !(i.price > 0));
   const message = [
-    "Olá! Quero fazer um pedido 😋",
+    "Olá! Gostaria de fazer um pedido e saber os valores 😋",
     "",
-    ...items.map((i) => `• ${i.qty}x ${i.name} — ${i.price > 0 ? brl(i.qty * i.price) : "preço a consultar"}`),
-    "",
-    total > 0
-      ? `*Total: ${brl(total)}*${hasUnpriced ? " + itens a consultar" : ""} (+ taxa de entrega)`
-      : "*Total: a consultar* (+ taxa de entrega)",
+    ...items.map((i) => `• ${i.qty}x ${i.name}`),
     "",
     name ? `👤 Nome: ${name}` : null,
-    address ? `📍 Endereço: ${address}` : null,
     `💳 Pagamento: ${payment}`,
     notes ? `📝 Obs: ${notes}` : null,
   ]
@@ -85,7 +78,7 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
                     🥺
                   </motion.span>
                   <p className="mt-4 font-display text-3xl text-cocoa-700">Sacola vazia!</p>
-                  <p className="mt-1 text-cocoa-700/70">Que tal um cachorro-quente?</p>
+                  <p className="mt-1 text-cocoa-700/70">Que tal um sonho fresquinho?</p>
                   <a href="#cardapio" onClick={() => setOpen(false)} className="mt-6 rounded-full bg-cocoa-700 px-6 py-3 font-bold text-cream">
                     Ver cardápio
                   </a>
@@ -108,7 +101,7 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
                           </span>
                           <div className="min-w-0 flex-1">
                             <p className="truncate font-bold text-cocoa-800">{i.name}</p>
-                            <p className="text-sm font-bold text-pepper">{i.price > 0 ? brl(i.price * i.qty) : "Consulte"}</p>
+                            <p className="text-sm font-bold text-cocoa-700/60">{i.qty} {i.qty === 1 ? "unidade" : "unidades"}</p>
                           </div>
                           <div className="flex items-center gap-1 rounded-full bg-mustard-100 p-1">
                             <button onClick={() => setQty(i.id, i.qty - 1)} className="grid h-7 w-7 place-items-center rounded-full bg-white text-cocoa-700" aria-label="Diminuir">
@@ -131,7 +124,6 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
 
                   <div className="mt-6 space-y-3">
                     <Field label="Seu nome" value={name} onChange={setName} placeholder="Como podemos te chamar?" />
-                    <Field label="Endereço de entrega" value={address} onChange={setAddress} placeholder="Rua, número, bairro, referência" />
                     <div>
                       <span className="mb-1 block text-sm font-bold text-cocoa-700">Pagamento</span>
                       <div className="grid grid-cols-3 gap-2">
@@ -146,7 +138,7 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
                         ))}
                       </div>
                     </div>
-                    <Field label="Observações" value={notes} onChange={setNotes} placeholder="Ex: sem cebola, troco para R$50…" />
+                    <Field label="Observações" value={notes} onChange={setNotes} placeholder="Ex: sabor do recheio, data que precisa…" />
                   </div>
                 </>
               )}
@@ -154,15 +146,8 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
 
             {items.length > 0 && (
               <footer className="border-t-4 border-cocoa-700 bg-white px-6 py-5">
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-cocoa-700">Total</span>
-                  <motion.span key={total} initial={{ y: -8, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="font-display text-4xl text-pepper">
-                    {total > 0 ? brl(total) : "A consultar"}
-                  </motion.span>
-                </div>
-                <p className="mt-1 text-xs text-cocoa-700/60">
-                  {hasUnpriced && total > 0 && "+ itens com preço a consultar. "}
-                  {deliveryNote}
+                <p className="text-center text-sm font-bold text-cocoa-700">
+                  💬 Os valores são combinados direto com a Bárbara no WhatsApp.
                 </p>
                 <a
                   href={waLink(whatsapp, message)}
@@ -170,7 +155,7 @@ export function CartDrawer({ whatsapp, deliveryNote }: { whatsapp: string; deliv
                   rel="noopener noreferrer"
                   className="group mt-4 flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-cocoa-800 bg-zap py-4 text-lg font-bold text-white shadow-[4px_4px_0_var(--color-cocoa-800)] transition-all hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none"
                 >
-                  Enviar pedido no WhatsApp
+                  Enviar pedido e consultar valores
                   <Send size={18} className="transition-transform group-hover:translate-x-1 group-hover:-rotate-12" />
                 </a>
               </footer>

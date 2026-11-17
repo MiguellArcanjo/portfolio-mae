@@ -2,7 +2,7 @@ import type { DB, Product } from "./types";
 
 const IMG = "/images/cardapio/";
 
-/** Atalho para montar produtos do cardápio inicial. Preço 0 = "Consulte". */
+/** Atalho para montar os produtos do cardápio. */
 function p(
   id: string,
   name: string,
@@ -15,7 +15,6 @@ function p(
     id,
     name,
     description,
-    price: 0,
     categoryId,
     image: "",
     emoji,
@@ -95,7 +94,7 @@ const products: Product[] = [
 const counters: Record<string, number> = {};
 for (const prod of products) prod.order = counters[prod.categoryId] = (counters[prod.categoryId] ?? 0) + 1;
 
-export const seed: DB = {
+export const content: DB = {
   settings: {
     brandName: "Bárbara Delivery",
     slogan: "Sabor e qualidade em cada pedido!",
@@ -111,14 +110,12 @@ export const seed: DB = {
     whatsapp: "5583988201418",
     whatsappDisplay: "(83) 98820-1418",
     instagram: "barbara.delivery83",
-    address: "João Pessoa - PB",
+    address: "Av. Maria Feitosa, 366 — Alto da Boa Vista, Bayeux - PB, 58113-070",
     hours: "Todos os dias, das 17h às 23h",
     deliveryNote: "Delivery rápido! Consulte a taxa para o seu bairro.",
     marquee: ["Pães fresquinhos", "Bolos caseiros", "Sonho de padaria", "Salgadinho de queijo", "Pudim", "Panetone", "Feito com amor"],
     stats: [
-      { label: "pedidos entregues", value: 1500, suffix: "+" },
       { label: "receitas da casa", value: products.length, suffix: "" },
-      { label: "de avaliação", value: 5, suffix: "★" },
     ],
   },
   categories: [
@@ -130,9 +127,9 @@ export const seed: DB = {
   ],
   products,
   testimonials: [
-    { id: "t1", name: "Gustavo L.", text: "O salgadinho de queijo com catupiry é viciante! Pedi uma bandeja e já quero outra.", rating: 5, visible: true },
-    { id: "t2", name: "Ana Paula", text: "Sonho fofinho e cheio de recheio, igualzinho ao de padaria antiga. ❤️", rating: 5, visible: true },
-    { id: "t3", name: "Rafael M.", text: "Pudim perfeito, igual ao da minha avó. Já virei cliente fiel!", rating: 5, visible: true },
-    { id: "t4", name: "Juliana S.", text: "Bolo de milho cremoso e cheiroso, chegou quentinho. Entrega rapidinha!", rating: 5, visible: true },
+    { id: "t1", name: "Gustavo L.", text: "O salgadinho de queijo com catupiry é viciante! Pedi uma bandeja e já quero outra.", rating: 5, visible: false },
+    { id: "t2", name: "Ana Paula", text: "Sonho fofinho e cheio de recheio, igualzinho ao de padaria antiga. ❤️", rating: 5, visible: false },
+    { id: "t3", name: "Rafael M.", text: "Pudim perfeito, igual ao da minha avó. Já virei cliente fiel!", rating: 5, visible: false },
+    { id: "t4", name: "Juliana S.", text: "Bolo de milho cremoso e cheiroso, chegou quentinho. Entrega rapidinha!", rating: 5, visible: false },
   ],
 };

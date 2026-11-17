@@ -1,15 +1,15 @@
 "use client";
 
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
-import { Plus } from "lucide-react";
+import { MessageCircle, Plus } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import type { Category, Product } from "@/lib/types";
-import { cn, priceLabel } from "@/lib/utils";
+import { cn, waLink } from "@/lib/utils";
 import { useCart } from "./cart";
 import { BouncyTitle, Reveal, SectionTag, Squiggle, Tilt } from "./fx";
 import { ProductVisual } from "./ProductVisual";
 
-export function Menu({ categories, products }: { categories: Category[]; products: Product[] }) {
+export function Menu({ categories, products, whatsapp }: { categories: Category[]; products: Product[]; whatsapp: string }) {
   const [active, setActive] = useState<string>("todos");
   const usedCats = useMemo(
     () => categories.filter((c) => products.some((p) => p.categoryId === c.id)),
@@ -77,7 +77,7 @@ export function Menu({ categories, products }: { categories: Category[]; product
                 exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
                 transition={{ type: "spring", stiffness: 260, damping: 24, delay: Math.min(i, 8) * 0.04 }}
               >
-                <ProductCard product={p} category={categories.find((c) => c.id === p.categoryId)} />
+                <ProductCard product={p} category={categories.find((c) => c.id === p.categoryId)} whatsapp={whatsapp} />
               </motion.div>
             ))}
           </AnimatePresence>
@@ -89,7 +89,7 @@ export function Menu({ categories, products }: { categories: Category[]; product
   );
 }
 
-export function ProductCard({ product: p, category }: { product: Product; category?: Category }) {
+export function ProductCard({ product: p, category, whatsapp }: { product: Product; category?: Category; whatsapp: string }) {
   const { add } = useCart();
   const btnRef = useRef<HTMLButtonElement>(null);
   const [added, setAdded] = useState(false);
@@ -136,7 +136,14 @@ export function ProductCard({ product: p, category }: { product: Product; catego
             </div>
           )}
           <div className="mt-5 flex items-center justify-between gap-3">
-            <span className="font-display text-3xl text-pepper">{priceLabel(p.price)}</span>
+            <a
+              href={waLink(whatsapp, `Olá! Qual o valor do(a) ${p.name}? 😋`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-bold text-cocoa-700 underline decoration-mustard-400 decoration-2 underline-offset-4 transition-colors hover:text-pepper"
+            >
+              <MessageCircle size={16} className="text-zap" /> Consultar valor
+            </a>
             <motion.button
               ref={btnRef}
               disabled={!p.available}

@@ -31,7 +31,6 @@ export type Product = {
   id: string;
   name: string;
   description: string;
-  price: number;
   categoryId: string;
   image: string;
   emoji: string;

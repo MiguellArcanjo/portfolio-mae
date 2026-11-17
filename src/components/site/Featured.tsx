@@ -4,14 +4,14 @@ import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { Plus } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import type { Product } from "@/lib/types";
-import { priceLabel } from "@/lib/utils";
+import { waLink } from "@/lib/utils";
 import { useCart } from "./cart";
 import { ProductVisual } from "./ProductVisual";
 
 const BG = ["bg-pepper", "bg-cocoa-700", "bg-mustard-500", "bg-zap", "bg-cocoa-500"];
 
 /** Seção "fixa" onde o scroll vertical move os destaques na horizontal. */
-export function Featured({ products }: { products: Product[] }) {
+export function Featured({ products, whatsapp }: { products: Product[]; whatsapp: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [distance, setDistance] = useState(0);
@@ -77,7 +77,14 @@ export function Featured({ products }: { products: Product[] }) {
                 <div>
                   {p.badge && <span className="font-hand text-2xl text-mustard-200">{p.badge}</span>}
                   <h3 className="font-display text-3xl leading-tight text-white">{p.name}</h3>
-                  <p className="mt-1 inline-block rounded-full bg-cocoa-900/45 px-3 font-display text-2xl text-mustard-200">{priceLabel(p.price)}</p>
+                  <a
+                    href={waLink(whatsapp, `Olá! Qual o valor do(a) ${p.name}? 😋`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 inline-block rounded-full bg-cocoa-900/45 px-3 py-0.5 text-sm font-bold text-mustard-200 transition-colors hover:bg-cocoa-900/70"
+                  >
+                    Consultar valor →
+                  </a>
                 </div>
                 <button
                   onClick={(e) => add(p, e.currentTarget)}

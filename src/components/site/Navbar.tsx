@@ -14,7 +14,8 @@ const LINKS = [
   { href: "#contato", label: "Contato" },
 ];
 
-export function Navbar({ brand, avatar }: { brand: string; avatar?: string }) {
+export function Navbar({ brand, avatar, hideLinks = [] }: { brand: string; avatar?: string; hideLinks?: string[] }) {
+  const links = LINKS.filter((l) => !hideLinks.includes(l.href));
   const { scrollY, scrollYProgress } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -59,7 +60,7 @@ export function Navbar({ brand, avatar }: { brand: string; avatar?: string }) {
           </a>
 
           <ul className="hidden items-center gap-1 md:flex">
-            {LINKS.map((l) => (
+            {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
@@ -127,7 +128,7 @@ export function Navbar({ brand, avatar }: { brand: string; avatar?: string }) {
               </button>
             </div>
             <ul className="mt-12 flex flex-col gap-4">
-              {LINKS.map((l, i) => (
+              {links.map((l, i) => (
                 <motion.li
                   key={l.href}
                   initial={{ x: -60, opacity: 0 }}
