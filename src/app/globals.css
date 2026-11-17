@@ -66,6 +66,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Tailwind 4 não coloca mais a "mãozinha" nos botões por padrão */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary,
+  label:has(> input[type="checkbox"]) {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
 ::selection {
   background: var(--color-mustard-400);
   color: var(--color-cocoa-900);

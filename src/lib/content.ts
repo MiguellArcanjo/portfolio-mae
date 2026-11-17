@@ -105,8 +105,8 @@ export const content: DB = {
     aboutTitle: "Feito com amor, servido com carinho",
     aboutText:
       "Tudo começou na cozinha de casa, com receitas de família e muita vontade de fazer gente feliz. Hoje, cada pedido que sai daqui leva o mesmo cuidado: ingredientes fresquinhos, massa feita na hora e aquele sabor que lembra a comida de vó.\n\nDo pãozinho com queijo ralado ao sonho recheado, do bolo de milho ao pudim lisinho — é tudo preparado com amor.",
-    aboutImage: "/images/barbara.jpg",
-    heroImage: "/images/cardapio/pudim.jpg",
+    aboutImage: "/images/barbara.webp",
+    heroImage: "/images/pudim-destaque.png",
     whatsapp: "5583988201418",
     whatsappDisplay: "(83) 98820-1418",
     instagram: "barbara.delivery83",
