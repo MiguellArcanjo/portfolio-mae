@@ -40,8 +40,8 @@ const products: Product[] = [
   p("pao-hamburguer", "Pão de Hambúrguer", "paes", "🍔", "Pão de hambúrguer fofinho, ideal para montar seus lanches.", { image: IMG + "pao-hamburguer.jpg" }),
 
   // Salgados
-  p("salgadinho-queijo-catupiry", "Salgadinho de Queijo (Catupiry)", "salgados", "🧀", "Salgadinho de queijo crocante por fora e cremoso por dentro, recheado com catupiry. Vendido na bandeja.", {
-    image: IMG + "salgadinho-queijo-catupiry.webp",
+  p("salgadinho-queijo-catupiry", "Salgadinho de Queijo (Catupiry)", "salgados", "🧀", "Salgadinho de queijo dourado, crocante por fora e cremoso por dentro, recheado com catupiry.", {
+    image: IMG + "salgadinho-queijo-catupiry.jpg",
     tags: ["Queijo", "Catupiry"],
     badge: "Da casa",
     featured: true,
