@@ -42,7 +42,7 @@ export function Navbar({ brand, avatar, hideLinks = [] }: { brand: string; avata
       >
         <nav
           className={cn(
-            "mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2 transition-all duration-500 sm:px-6",
+            "relative mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2 transition-all duration-500 sm:px-6",
             scrolled
               ? "border-2 border-cocoa-700 bg-cream/85 shadow-[4px_4px_0_var(--color-cocoa-700)] backdrop-blur-md"
               : "border-2 border-transparent",
@@ -105,11 +105,14 @@ export function Navbar({ brand, avatar, hideLinks = [] }: { brand: string; avata
               <Menu size={20} />
             </button>
           </div>
+          {/* progresso da leitura, dentro da pílula e cortado pelas bordas arredondadas */}
+          <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full" aria-hidden>
+            <motion.span
+              className="absolute inset-x-0 bottom-0 block h-[3px] origin-left bg-pepper transition-opacity duration-500"
+              style={{ scaleX: scrollYProgress, opacity: scrolled ? 1 : 0 }}
+            />
+          </span>
         </nav>
-        <motion.div
-          className="mx-auto mt-1 h-1 max-w-6xl origin-left rounded-full bg-pepper"
-          style={{ scaleX: scrollYProgress, opacity: scrolled ? 1 : 0 }}
-        />
       </motion.header>
 
       <AnimatePresence>

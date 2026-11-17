@@ -79,6 +79,22 @@ body {
   }
 }
 
+/* Sem seleção de texto nem arrastar imagens no site (campos de texto continuam editáveis) */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+img {
+  -webkit-user-drag: none;
+}
+
 ::selection {
   background: var(--color-mustard-400);
   color: var(--color-cocoa-900);
